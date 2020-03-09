@@ -126,6 +126,15 @@ class PassportController extends Controller
         }
     }
 
+    public function details()
+    {
+        $user = Auth::user();
+        return response()->json([
+            'code' => 0,
+            'data' => $user
+        ], 200);
+    }
+
     public function logout()
     {
         if (Auth::guard('api')->check()) {
