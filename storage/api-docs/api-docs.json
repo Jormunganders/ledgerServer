@@ -1,0 +1,92 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "记账本",
+        "description": "所有模块接口",
+        "contact": {
+            "name": "sky PHP开发支持",
+            "email": "sky@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/register": {
+            "post": {
+                "summary": "注册",
+                "description": "注册",
+                "operationId": "App\\Http\\Controllers\\PassportController::register",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "昵称",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "邮箱",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "密码",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "注册成功"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/login": {
+            "post": {
+                "summary": "登录",
+                "description": "登录",
+                "operationId": "App\\Http\\Controllers\\PassportController::login",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "邮箱",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "密码",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "登录成功"
+                    },
+                    "401": {
+                        "description": "登录失败"
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    }
+}

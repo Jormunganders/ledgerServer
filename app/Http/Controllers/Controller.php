@@ -7,6 +7,17 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
+/**
+ * @OA\Info(
+ *      version="1.0",
+ *      title="记账本",
+ *      description="所有模块接口",
+ *      @OA\Contact(
+ *          name="sky PHP开发支持",
+ *          email="sky@gmail.com"
+ *      )
+ * )
+ */
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;

@@ -8,6 +8,45 @@ use Illuminate\Support\Facades\Auth;
 
 class PassportController extends Controller
 {
+    /**
+     * @OA\Post(
+     *     path="/register",
+     *     summary="注册",
+     *     description="注册",
+     *     deprecated=false,
+     *     @OA\Parameter(
+     *         name="name",
+     *         in="query",
+     *         description="昵称",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="email",
+     *         in="query",
+     *         description="邮箱",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="password",
+     *         in="query",
+     *         description="密码",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="注册成功"
+     *     )
+     * )
+     */
     public function register(Request $request)
     {
         $this->validate($request, [
@@ -31,6 +70,40 @@ class PassportController extends Controller
         ], 200);
     }
 
+    /**
+     * @OA\Post(
+     *     path="/login",
+     *     summary="登录",
+     *     description="登录",
+     *     deprecated=false,
+     *     @OA\Parameter(
+     *         name="email",
+     *         in="query",
+     *         description="邮箱",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="password",
+     *         in="query",
+     *         description="密码",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="登录成功"
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="登录失败",
+     *     )
+     * )
+     */
     public function login(Request $request)
     {
         $credentials = [
